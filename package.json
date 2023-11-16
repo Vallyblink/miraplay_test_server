@@ -4,12 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./server.js",
+    "start": "nodemon cross-env NODE_ENV=production node ./server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon ./server.js",
     "lint": "eslint **/*.js",
-    "lint:fix": "eslint --fix **/*.js",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules npx jest",
-    "sendEmail": "node sendEmail.js"
+    "lint:fix": "eslint --fix **/*.js"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
@@ -36,7 +34,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "5.2.0",
     "jest": "^29.6.2",
-    "nodemon": "2.0.15",
+    "nodemon": "^2.0.15",
     "prettier": "^3.0.1",
     "supertest": "^6.3.3"
   }
