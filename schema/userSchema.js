@@ -3,6 +3,7 @@ import Joi from "joi";
 import { emailPattern } from "../constants/userConstans.js";
 
 const userSingUpSchema = Joi.object({
+    name: Joi.string().min(2).max(32).required(),
     email: Joi.string().pattern(emailPattern).required(),
     password:Joi.string().min(6).required(),
 })
