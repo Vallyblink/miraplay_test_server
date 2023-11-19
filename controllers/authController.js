@@ -25,7 +25,7 @@ const getCurrent =(req, res) => {
 };
 
 const register = async (req, res) => {
-    let { email, password } = req.body;
+    let { name,email, password } = req.body;
     
     email = email.toLowerCase();
 
@@ -42,7 +42,8 @@ const register = async (req, res) => {
    
     const newUser = await User.create({email, password: hashPassword, verificationToken });
     res.status(201).json({
-        "user": {
+      "user": {
+          name:newUser.name,
             email: newUser.email,
             password: newUser.password,
             token:verificationToken
