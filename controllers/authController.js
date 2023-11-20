@@ -87,7 +87,10 @@ const google = async (req, res) => {
 
   const user = await User.findOne({ email });
   if (user) {
-const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "23h" });
+    const payload = {
+        id: user.id,
+    };
+  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "23h" });
     res.status(201).json({
       token,
       user: {
@@ -105,6 +108,7 @@ const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "23h" });
     res.status(201).json({
       token,
       user: {
+        name,
         email,
       },
     });
