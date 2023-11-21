@@ -106,9 +106,6 @@ const google = async (req, res) => {
       password: "google123",
       verificationToken
     });
-
-    const token = await createToken(user._id);
-    
     res.status(201).json({
       token,
       user: {
