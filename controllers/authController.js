@@ -100,11 +100,15 @@ const google = async (req, res) => {
   }
 
   if (!user) {
+    const verificationToken = nanoid()
     const user = await User.create({
       ...req.body,
       password: "google123",
+      verificationToken
     });
+
     const token = await createToken(user._id);
+    
     res.status(201).json({
       token,
       user: {
