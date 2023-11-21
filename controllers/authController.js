@@ -107,7 +107,7 @@ const google = async (req, res) => {
       verificationToken
     });
     res.status(201).json({
-      token,
+      verificationToken,
       user: {
         name,
         email,
